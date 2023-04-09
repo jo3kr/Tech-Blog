@@ -3,7 +3,8 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const path = require('path');
-const routes = require('./controllers');
+const apiRoutes = require('./controllers/api');
+const htmlRoutes = require('./controllers/html/htmlRoutes');
 const sequelize = require('./config/connection');
 const isAuthenticated = require('./config/middleware/isAuthenticated');
 
@@ -30,7 +31,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(routes);
+app.use('/api', apiRoutes);
+app.use(htmlRoutes);
 
 // starts the server and sync the database
 sequelize.sync({ force: false }).then(() => {

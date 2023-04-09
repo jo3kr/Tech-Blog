@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dev Blog</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
@@ -13,6 +13,7 @@
     <nav>
       <a href="/">Home</a>
       {{#if logged_in}}
+      <a href="/dashboard">Dashboard</a>
       <a href="/api/users/logout">Logout</a>
       {{else}}
       <a href="/login">Login/Signup</a>
