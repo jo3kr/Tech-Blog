@@ -1,0 +1,9 @@
+{{> navbar }}
+
+<div class="dashboard">
+  <h2>Your Posts</h2>
+  {{#each posts}}
+    {{> posts/post-block}}
+  {{/each}}
+  <button class="new-post-btn">Create a New Post</button>
+</div>
